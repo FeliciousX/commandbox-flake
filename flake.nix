@@ -1,4 +1,5 @@
 {
+  description = "Packaging Commandbox on flake";
   inputs.nixpkgs.url = "github:NixOS/nixpkgs/nixpkgs-unstable";
 
   outputs = {
@@ -7,7 +8,6 @@
     system = "x86_64-linux";
     pkgs = import nixpkgs {inherit system;};
   in {
-    description = "Packaging Commandbox on flake";
     packages.${system}.default =
       pkgs.stdenv.mkDerivation
       {
