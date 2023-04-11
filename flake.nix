@@ -18,6 +18,7 @@
         name = "commandbox-5.8.0";
         inherit system;
         dontUnpack = true;
+        meta.mainProgram = "box";
         buildInputs = [ pkgs.unzip ];
         buildPhase = ''
           unzip $src
