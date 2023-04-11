@@ -12,8 +12,8 @@
       pkgs.stdenv.mkDerivation
       {
         src = pkgs.fetchurl {
-          url = "https://downloads.ortussolutions.com/ortussolutions/commandbox/5.8.0/commandbox-jre-linux64-5.8.0.zip";
-          sha256 = "22fda3337bc8934c169fecde14d4f7c20ab87c0b562864c429979d12a6601c59";
+          url = "https://downloads.ortussolutions.com/ortussolutions/commandbox/5.8.0/commandbox-bin-5.8.0.zip";
+          sha256 = "d6acc9d93cbe72e247f7d1a4e51fe561c918951b555370f882fe312c98c45a69";
         };
         name = "commandbox-5.8.0";
         inherit system;
@@ -26,7 +26,6 @@
         installPhase = ''
           mkdir -p $out/bin
           mv box $out/bin/box
-          mv jre $out/bin/jre
         '';
       };
   };
