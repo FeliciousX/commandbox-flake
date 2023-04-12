@@ -8,6 +8,7 @@
     flake-utils.lib.eachDefaultSystem (system:
       let pkgs = import nixpkgs { inherit system; }; in
       {
+        formatter = pkgs.nixpkgs-fmt;
         packages.default = pkgs.stdenv.mkDerivation {
           src = pkgs.fetchurl {
             url = "https://downloads.ortussolutions.com/ortussolutions/commandbox/5.8.0/commandbox-bin-5.8.0.zip";
