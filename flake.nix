@@ -11,10 +11,10 @@
         formatter = pkgs.nixpkgs-fmt;
         packages.default = pkgs.stdenv.mkDerivation {
           src = pkgs.fetchurl {
-            url = "https://downloads.ortussolutions.com/ortussolutions/commandbox/5.8.0/commandbox-bin-5.8.0.zip";
-            sha256 = "d6acc9d93cbe72e247f7d1a4e51fe561c918951b555370f882fe312c98c45a69";
+            url = "https://downloads.ortussolutions.com/ortussolutions/commandbox/5.9.0/commandbox-bin-5.9.0.zip";
+            sha256 = "sha256-v/arhJvaMj2BgvY/v4n8GHNjPBW5l0TySPb+CtQBGi4=";
           };
-          name = "commandbox-5.8.0";
+          name = "commandbox-5.9.0";
           inherit system;
           dontUnpack = true;
           meta.mainProgram = "box";
