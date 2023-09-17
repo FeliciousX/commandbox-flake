@@ -2,9 +2,9 @@
 stdenv.mkDerivation {
   pname = "commandbox";
   version = "5.9.1";
-  src = fetchzip{
+  src = fetchzip {
     url = "https://downloads.ortussolutions.com/ortussolutions/commandbox/5.9.1/commandbox-bin-5.9.1.zip";
-    sha256 = "sha256-o/QMzEneKpUInbzUW1ioV0VyDLyjmwqyN9FnDhNYY2Q=";
+    sha256 = "o/QMzEneKpUInbzUW1ioV0VyDLyjmwqyN9FnDhNYY2Q=";
   };
   meta.mainProgram = "box";
   installPhase = ''
