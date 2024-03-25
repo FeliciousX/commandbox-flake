@@ -4,7 +4,7 @@ stdenv.mkDerivation {
   version = "6.0.0";
   src = fetchzip {
     url = "https://downloads.ortussolutions.com/ortussolutions/commandbox/6.0.0/commandbox-bin-6.0.0.zip";
-    sha256 = "OHRpVq3BTpGW65Zw5ZnEgtq9L4LkCmJWvI4mpENaSIs=";
+    sha256 = "4zhjtqb62U2RQZRZbFLFfL1Etykx1Rchosy6Nu+fMiU=";
   };
   meta.mainProgram = "box";
   installPhase = ''
