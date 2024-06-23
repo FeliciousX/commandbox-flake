@@ -10,9 +10,7 @@
         pkgs = import nixpkgs { inherit system; };
       in
       {
-        packages.default = import ./commandbox.nix {
-          inherit pkgs;
-        };
+        packages.default = pkgs.callPackage ./commandbox.nix { };
 
         apps.default = {
           type = "app";
