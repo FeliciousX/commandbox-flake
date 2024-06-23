@@ -1,4 +1,4 @@
-{ pkgs ? import <nixpkgs> { } }:
+{ pkgs ? import <nixpkgs> { }, jdk ? false }:
 pkgs.stdenv.mkDerivation {
   pname = "commandbox";
   version = "6.0.0";
@@ -17,6 +17,6 @@ pkgs.stdenv.mkDerivation {
     mv box $out/bin/box
 
     wrapProgram $out/bin/box \
-    --set JAVA_HOME ${pkgs.jdk.home}
+    --set JAVA_HOME ${if (jdk == false) then pkgs.jdk.home else jdk.home}
   '';
 }
