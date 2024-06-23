@@ -1,5 +1,5 @@
 { pkgs ? import <nixpkgs> { } }:
-pkgs.stdenv.mkDerivation rec {
+pkgs.stdenv.mkDerivation {
   pname = "commandbox";
   version = "6.0.0";
   src = pkgs.fetchzip {
@@ -8,8 +8,6 @@ pkgs.stdenv.mkDerivation rec {
   };
   meta.mainProgram = "box";
 
-  jdk = pkgs.jdk11_headless;
-
   nativeBuildInputs = with pkgs; [
     makeWrapper
   ];
@@ -17,10 +15,8 @@ pkgs.stdenv.mkDerivation rec {
   installPhase = ''
     mkdir -p $out/bin
     mv box $out/bin/box
-  '';
 
-  postInstall = ''
     wrapProgram $out/bin/box \
-    --set JAVA_HOME ${jdk.home};
+    --set JAVA_HOME ${pkgs.jdk.home}
   '';
 }
