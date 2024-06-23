@@ -1,5 +1,5 @@
-{ pkgs }:
-pkgs.stdenv.mkDerivation {
+{ pkgs ? import <nixpkgs> { } }:
+pkgs.stdenv.mkDerivation rec {
   pname = "commandbox";
   version = "6.0.0";
   src = pkgs.fetchzip {
@@ -8,15 +8,19 @@ pkgs.stdenv.mkDerivation {
   };
   meta.mainProgram = "box";
 
-  buildInputs = [
-    pkgs.which # box uses which on certain commands on runtime
-    pkgs.jdk11_headless # TODO: figure out if user can override this
+  jdk = pkgs.jdk11_headless;
+
+  nativeBuildInputs = with pkgs; [
+    makeWrapper
   ];
 
   installPhase = ''
-    runHook preInstall
     mkdir -p $out/bin
     mv box $out/bin/box
-    runHook postInstall
+  '';
+
+  postInstall = ''
+    wrapProgram $out/bin/box \
+    --set JAVA_HOME ${jdk.home};
   '';
 }
