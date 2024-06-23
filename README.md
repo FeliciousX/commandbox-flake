@@ -20,16 +20,16 @@
         pkgs = import nixpkgs {
           inherit system;
         };
-        box = commandbox.packages.${system}.default;
+        box = commandbox.packages.${system}.default.override {
+          # defaults to nixpkgs.jdk if not specified
+          jdk = pkgs.jdk11_headless;
+        };
       in {
         devShells.default = pkgs.mkShell {
           nativeBuildInputs = [ pkgs.bashInteractive ];
           packages = [
             box
-          ] ++ pkgs.lib.attrVals [
-            "which"
-            "jdk11_headless"
-          ] pkgs;
+          ];
         };
       });
 }
